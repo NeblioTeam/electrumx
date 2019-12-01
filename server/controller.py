@@ -811,7 +811,7 @@ class Controller(ServerBase):
 
     async def address_listunspent(self, address):
         '''Return the list of UTXOs of an address.'''
-        with urllib.request.urlopen("https://ntp1node.nebl.io:8080/v3/addressinfo/"+address) as url:
+        with urllib.request.urlopen("https://ntp1node.nebl.io/ntp1/addressinfo/"+address) as url:
             data = json.loads(url.read().decode())
         for utxo in data["utxos"]:
         	if len(utxo["tokens"]) > 0:
